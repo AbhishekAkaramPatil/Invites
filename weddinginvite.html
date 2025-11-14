@@ -5,58 +5,29 @@
   <title>Wedding RSVP</title>
   <style>
       body {
-          font-family: 'Georgia', serif;
+          font-family: Arial, sans-serif;
           padding: 20px;
-          max-width: 420px;
+          max-width: 400px;
           margin: auto;
-          background: #fff7ef;
-          color: #5a3d2b;
+          background: #faf6f4;
       }
-
-      .card {
-          background: #ffffff;
-          border-radius: 10px;
-          padding: 25px;
-          border: 2px solid #e7c9a9;
-          box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      }
-
-      h1 {
+      h2 {
           text-align: center;
-          color: #a6593f;
-          font-size: 28px;
-          margin-bottom: 5px;
+          color: #b66a6a;
       }
-
-      h3 {
-          text-align: center;
-          color: #8a583c;
-          margin-top: 0;
-      }
-
-      .divider {
-          width: 80px;
-          height: 3px;
-          background: #d4a373;
-          margin: 15px auto;
-          border-radius: 4px;
-      }
-
       label {
           font-size: 16px;
-          margin-bottom: 8px;
           display: block;
+          margin-bottom: 8px;
       }
-
       input {
           width: 100%;
           padding: 10px;
           margin-bottom: 20px;
-          border: 1.5px solid #c9a77a;
+          border: 1px solid #ccc;
           border-radius: 6px;
           font-size: 16px;
       }
-
       button {
           width: 48%;
           padding: 12px;
@@ -66,45 +37,27 @@
           cursor: pointer;
           color: #fff;
       }
-
       #yesBtn {
-          background-color: #7dbf74;
+          background-color: #4CAF50;
       }
-
       #noBtn {
-          background-color: #d97773;
+          background-color: #d9534f;
       }
-
       .btn-row {
           display: flex;
           justify-content: space-between;
-      }
-
-      .footer {
-          text-align: center;
-          margin-top: 20px;
-          color: #8a583c;
-          font-style: italic;
       }
   </style>
 </head>
 
 <body>
+  <h2>Wedding RSVP</h2>
+  <label>Your Name:</label>
+  <input type="text" id="guestName" placeholder="Enter your name">
 
-  <div class="card">
-      <h1>Dr. Pooja & Abhishek</h1>
-      <h3>30th November 2025</h3>
-      <div class="divider"></div>
-
-      <label>Your Name:</label>
-      <input type="text" id="guestName" placeholder="Enter your name">
-
-      <div class="btn-row">
-          <button id="yesBtn" onclick="sendRSVP('YES')">YES</button>
-          <button id="noBtn" onclick="sendRSVP('NO')">NO</button>
-      </div>
-
-      <p class="footer">Thank you for your response ✨</p>
+  <div class="btn-row">
+      <button id="yesBtn" onclick="sendRSVP('YES')">YES</button>
+      <button id="noBtn" onclick="sendRSVP('NO')">NO</button>
   </div>
 
   <script>
@@ -117,7 +70,7 @@
           }
 
           const message = `RSVP for Wedding%0AName: ${encodeURIComponent(name)}%0AResponse: ${response}`;
-          const phone = "918879279165"; 
+          const phone = "YOURNUMBER";  // <-- REPLACE THIS
 
           const url = `https://wa.me/${phone}?text=${message}`;
           window.location.href = url;
@@ -126,3 +79,4 @@
 
 </body>
 </html>
+

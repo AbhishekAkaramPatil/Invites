@@ -1,128 +1,235 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Wedding RSVP</title>
+  <meta charset="utf-8">
+  <title>Dr. Pooja & Abhishek — RSVP</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-      body {
-          font-family: 'Georgia', serif;
-          padding: 20px;
-          max-width: 420px;
-          margin: auto;
-          background: #fff7ef;
-          color: #5a3d2b;
-      }
+    :root{
+      --maroon: #6e1b1b;
+      --deep-maroon: #4b0f0f;
+      --gold: #d8a24a;
+      --cream: #fff8f2;
+    }
 
-      .card {
-          background: #ffffff;
-          border-radius: 10px;
-          padding: 25px;
-          border: 2px solid #e7c9a9;
-          box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      }
+    /* Page */
+    body{
+      margin:0;
+      padding:24px;
+      font-family: "Georgia", serif;
+      background: linear-gradient(180deg, #fff7f0 0%, #fff2ec 100%);
+      color: #2f1d17;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:100vh;
+    }
 
-      h1 {
-          text-align: center;
-          color: #a6593f;
-          font-size: 28px;
-          margin-bottom: 5px;
-      }
+    /* Card */
+    .card{
+      width:100%;
+      max-width:520px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(255,250,244,1) 100%);
+      border-radius:14px;
+      padding:18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      border: 6px solid;
+      border-image: linear-gradient(90deg, var(--gold), #b77f2a 40%, #8b5a20 100%) 1;
+      position:relative;
+      overflow:hidden;
+    }
 
-      h3 {
-          text-align: center;
-          color: #8a583c;
-          margin-top: 0;
-      }
+    /* gold ornamental top bar */
+    .top-bar {
+      height:12px;
+      background: linear-gradient(90deg, #b7832f, var(--gold), #f3d29a);
+      border-radius:8px;
+      margin-bottom:14px;
+    }
 
-      .divider {
-          width: 80px;
-          height: 3px;
-          background: #d4a373;
-          margin: 15px auto;
-          border-radius: 4px;
-      }
+    /* decorative corners (simple) */
+    .corner {
+      position:absolute;
+      width:60px;
+      height:60px;
+      opacity:0.9;
+      fill: none;
+      stroke: var(--gold);
+      stroke-width:2;
+    }
+    .corner.top-left { left: -10px; top: -10px; transform: rotate(0deg); }
+    .corner.bottom-right { right: -10px; bottom: -10px; transform: rotate(180deg); }
 
-      label {
-          font-size: 16px;
-          margin-bottom: 8px;
-          display: block;
-      }
+    /* image */
+    .hero {
+      width:100%;
+      height:160px;
+      border-radius:10px;
+      object-fit:cover;
+      display:block;
+      margin-bottom:14px;
+      border: 3px solid rgba(215,170,80,0.12);
+    }
 
-      input {
-          width: 100%;
-          padding: 10px;
-          margin-bottom: 20px;
-          border: 1.5px solid #c9a77a;
-          border-radius: 6px;
-          font-size: 16px;
-      }
+    h1 {
+      text-align:center;
+      margin:6px 0 2px;
+      font-size:24px;
+      color: var(--deep-maroon);
+      letter-spacing:0.6px;
+    }
+    h2 {
+      text-align:center;
+      margin:0 0 12px;
+      font-size:15px;
+      color: #6a3e32;
+      font-weight:400;
+    }
 
-      button {
-          width: 48%;
-          padding: 12px;
-          font-size: 16px;
-          border: none;
-          border-radius: 6px;
-          cursor: pointer;
-          color: #fff;
-      }
+    .divider {
+      width:70px;
+      height:4px;
+      background: linear-gradient(90deg, var(--gold), #b77f2a);
+      margin:10px auto 18px;
+      border-radius:4px;
+    }
 
-      #yesBtn {
-          background-color: #7dbf74;
-      }
+    label {
+      display:block;
+      font-size:14px;
+      margin-bottom:6px;
+      color:#5a3d2b;
+    }
 
-      #noBtn {
-          background-color: #d97773;
-      }
+    input[type="text"], input[type="number"] {
+      width:100%;
+      padding:10px 12px;
+      font-size:15px;
+      border-radius:8px;
+      border:1.5px solid rgba(139,90,40,0.18);
+      background: rgba(255,255,255,0.95);
+      margin-bottom:14px;
+      box-sizing:border-box;
+    }
 
-      .btn-row {
-          display: flex;
-          justify-content: space-between;
-      }
+    .btn-row {
+      display:flex;
+      gap:12px;
+      justify-content:space-between;
+    }
 
-      .footer {
-          text-align: center;
-          margin-top: 20px;
-          color: #8a583c;
-          font-style: italic;
-      }
+    button {
+      flex:1;
+      padding:12px 8px;
+      border-radius:8px;
+      border: none;
+      font-size:15px;
+      cursor:pointer;
+      color:white;
+      font-weight:600;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    }
+
+    #yesBtn { background: linear-gradient(180deg, #9bd68f, #67b256); color: #073b12; }
+    #noBtn  { background: linear-gradient(180deg, #f19a92, #d25b52); color: #3e0a08; }
+
+    .footer {
+      text-align:center;
+      margin-top:14px;
+      color:#5f3f33;
+      font-size:13px;
+    }
+
+    /* small screens */
+    @media (max-width:420px){
+      .hero { height:130px; }
+      h1 { font-size:20px; }
+      .card { padding:14px; border-radius:12px; }
+      body { padding:14px; }
+    }
   </style>
 </head>
-
 <body>
 
-  <div class="card">
-      <h1>Dr. Pooja & Abhishek</h1>
-      <h3>30th November 2025</h3>
-      <div class="divider"></div>
+  <div class="card" role="main" aria-label="Wedding RSVP form">
+    <!-- decorative SVG corners -->
+    <svg class="corner top-left" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 80 Q30 2 80 2" stroke-linecap="round"/>
+      <circle cx="10" cy="75" r="3" fill="#d8a24a"/>
+    </svg>
 
-      <label>Your Name:</label>
-      <input type="text" id="guestName" placeholder="Enter your name">
+    <svg class="corner bottom-right" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <path d="M98 20 Q68 98 18 98" stroke-linecap="round"/>
+      <circle cx="90" cy="25" r="3" fill="#d8a24a"/>
+    </svg>
 
-      <div class="btn-row">
-          <button id="yesBtn" onclick="sendRSVP('YES')">YES</button>
-          <button id="noBtn" onclick="sendRSVP('NO')">NO</button>
-      </div>
+    <div class="top-bar" aria-hidden="true"></div>
 
-      <p class="footer">Thank you for your response ✨</p>
+    <!-- ⭐ Replace src below with your image filename or hosted image URL -->
+    <img class="hero" src="your-image.jpg" alt="Wedding image (replace with your image)">
+
+    <h1>Dr. Pooja &amp; Abhishek</h1>
+    <h2>30th November 2025</h2>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <label for="guestName">Your Name</label>
+    <input id="guestName" type="text" placeholder="Enter your name" autocomplete="name">
+
+    <label for="guestCount">No. of People Attending</label>
+    <input id="guestCount" type="number" placeholder="e.g. 2" min="1" inputmode="numeric">
+
+    <div class="btn-row" style="margin-top:6px;">
+      <button id="yesBtn" onclick="sendRSVP('YES')" aria-label="Yes, I will attend">YES</button>
+      <button id="noBtn" onclick="sendRSVP('NO')" aria-label="No, I cannot attend">NO</button>
+    </div>
+
+    <p class="footer">Kindly respond on WhatsApp — no email required ✨</p>
   </div>
 
   <script>
-      function sendRSVP(response) {
-          const name = document.getElementById("guestName").value.trim();
+    function sendRSVP(response) {
+      const name = document.getElementById('guestName').value.trim();
+      const count = document.getElementById('guestCount').value.trim();
 
-          if (name === "") {
-              alert("Please enter your name.");
-              return;
-          }
-
-          const message = `RSVP for Wedding%0AName: ${encodeURIComponent(name)}%0AResponse: ${response}`;
-          const phone = "918879279165"; 
-
-          const url = `https://wa.me/${phone}?text=${message}`;
-          window.location.href = url;
+      if (!name) {
+        alert('Please enter your name.');
+        document.getElementById('guestName').focus();
+        return;
       }
+
+      if (response === 'YES' && !count) {
+        alert('Please enter number of people attending.');
+        document.getElementById('guestCount').focus();
+        return;
+      }
+
+      // Build message lines, then encode entire message
+      let lines = [];
+      lines.push('RSVP for Wedding');
+      lines.push('Name: ' + name);
+      lines.push('Response: ' + response);
+      if (response === 'YES') lines.push('People Attending: ' + count);
+      lines.push('— Dr. Pooja & Abhishek');
+
+      const message = lines.join('\n');
+      const phone = '918879279165'; // your WhatsApp number
+      const url = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(message);
+
+      // open WhatsApp in new tab (or app on mobile)
+      window.location.href = url;
+    }
+
+    // optional: allow Enter key to trigger YES if count provided
+    document.getElementById('guestCount').addEventListener('keydown', function(e){
+      if (e.key === 'Enter') {
+        sendRSVP('YES');
+      }
+    });
   </script>
 
 </body>
 </html>
+

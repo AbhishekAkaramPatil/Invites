@@ -64,18 +64,20 @@
 
     /* image */
     <!-- ⭐ Replace this inside your CSS -->
+
     .hero {
     width: 100%;
-    height: auto;
-    max-height: 420px;
-    border-radius: 10px;
-    object-fit: contain;
-    background: #f9f0e8;
+    height: auto;              /* allow full height naturally */
+    max-height: 100%;          /* prevents overflow */
+    object-fit: contain;       /* shows entire image */
     display: block;
     margin-bottom: 14px;
-    padding: 8px;
+    background: #f9f0e8;       /* soft background */
+    border-radius: 10px;
+    padding: 0;                /* remove padding so it doesn't crop */
     border: 2px solid rgba(215,170,80,0.25);
     }
+
 
     h1 {
       text-align:center;
@@ -236,6 +238,7 @@
 
 </body>
 </html>
+
 
 
 
